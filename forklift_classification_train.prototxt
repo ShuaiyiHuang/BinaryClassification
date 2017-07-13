@@ -12,7 +12,7 @@ layer {
     mean_value: 128  
   }
   image_data_param {  
-    source: "./train_images.txt"  
+    source: "./examples/forklift_classification/train.txt"  
     new_height: 227  
     new_width: 227  
     is_color: true  
@@ -22,7 +22,7 @@ layer {
 }
 layer {
   name: "data"
-  type: "Data"
+  type: "ImageData"
   top: "data"
   top: "label"
   include {
@@ -33,11 +33,11 @@ layer {
     mean_value: 128  
   }
   image_data_param {  
-    source: "./test_images.txt"  
+    source: "./examples/forklift_classification/validate.txt"  
     new_height: 227  
     new_width: 227  
     is_color: true  
-    batch_size: 50  
+    batch_size: 60  
     shuffle: true  
   }  
 }
