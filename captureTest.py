@@ -68,3 +68,24 @@ targetFileName = '2017-07-13-151123-test.txt'
 rootDir = saveRoot
 label = 1
 generateTxt(targetFileName, rootDir, label)
+
+###########################
+
+from generator import *
+#get negtive samples
+videoName = 'D:/Baidu/BaiduDownload/20170712/2017-07-12-103818.mov'
+saveRoot = 'D:/Baidu/BaiduDownload/20170712/data/'
+filePrefix = 'negtive-test'
+generateData(videoName, saveRoot, filePrefix, 23)
+
+from generator import *
+targetFileName = 'negtive-test.txt'
+rootDir = 'D:/Baidu/BaiduDownload/20170712/data/negtive-test'
+label = 0
+generateTxt(targetFileName, rootDir, label)
+
+from generator import *
+targetFileName = 'positive-test.txt'
+rootDir = 'D:/Baidu/BaiduDownload/20170712/data/positive-test'
+label = 1
+generateTxt(targetFileName, rootDir, label)

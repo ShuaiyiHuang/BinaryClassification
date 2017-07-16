@@ -77,3 +77,28 @@ videoName = 'D:/Baidu/BaiduDownload/2017-07-13/2017-07-13 145738.mov'
 saveRoot = 'F:/DeepLearning/Caffe/caffe/examples/forklift_classification/data/'
 filePrefix = '2017-07-13-145738'
 generateData(videoName, saveRoot, filePrefix, 6)
+
+##############################################
+#get positive samples
+videoName = 'D:/Baidu/BaiduDownload/2017-07-14/2017-07-14 115957.mov'
+saveRoot = 'F:/DeepLearning/Caffe/caffe/examples/forklift_classification/data/'
+filePrefix = '2017-07-14-115957'
+generateData(videoName, saveRoot, filePrefix, 6)
+
+#get positive samples
+videoName = 'D:/Baidu/BaiduDownload/2017-07-14/2017-07-14 121623.mov'
+saveRoot = 'F:/DeepLearning/Caffe/caffe/examples/forklift_classification/data/'
+filePrefix = '2017-07-14-121623'
+generateData(videoName, saveRoot, filePrefix, 6)
+
+#get positive samples
+videoName = 'D:/Baidu/BaiduDownload/2017-07-14/2017-07-14 122540.mov'
+saveRoot = 'F:/DeepLearning/Caffe/caffe/examples/forklift_classification/data/'
+filePrefix = '2017-07-14-122540'
+generateData(videoName, saveRoot, filePrefix, 6)
+
+#get positive samples
+videoName = 'D:/Baidu/BaiduDownload/2017-07-14/2017-07-14 124500.mov'
+saveRoot = 'F:/DeepLearning/Caffe/caffe/examples/forklift_classification/data/'
+filePrefix = '2017-07-14-124500'
+generateData(videoName, saveRoot, filePrefix, 6)
