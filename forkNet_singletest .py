@@ -13,7 +13,7 @@ model_root = 'F:/DeepLearning/Caffe/caffe/examples/forklift_classification/'
 # 设置网络结构  
 net_file = model_root + 'forklift_classification_deploy.prototxt'  
 # 添加训练之后的参数  
-caffe_model =  model_root + 'models/forknet_train_iter_588.caffemodel'
+caffe_model =  model_root + 'models/forknet_train_iter_2800.caffemodel'
 
 caffe.set_mode_gpu()
 caffe.set_device(0);
@@ -24,7 +24,8 @@ import cv2
 #data:n*c*h*w
 # image_file = model_root+'test/Negtive_672.jpg'
 # image_file = 'C:/Users/Trainer/Desktop/Negtive_18276-2.jpg'
-image_file = 'D:/Baidu/BaiduDownload/20170712/data/2017-07-13-151123/_3018.jpg'
+# image_file = 'D:/Baidu/BaiduDownload/20170712/data/positive-test/2017-07-13-151607_492.jpg'
+image_file = 'F:/DeepLearning/Caffe/caffe/examples/forklift_classification/data/2017-07-17-074648/2017-07-17-074648_6450.jpg'
 image = cv2.imread(image_file)
 imagedata = cv2.resize(image,(227,227))
 

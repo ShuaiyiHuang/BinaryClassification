@@ -12,8 +12,8 @@ def generateData(videoName, saveRoot, filePrefix = '', sampleRate = 6):
     sampleWeight = 640
     sampleHeight = 360
 
-    if not os.path.exists(saveRoot + '/' + filePrefix):
-        os.makedirs(saveRoot + '/' + filePrefix)
+    if not os.path.exists(saveRoot):
+        os.makedirs(saveRoot)
 
     while cap.isOpened():
         ret,frame = cap.read()
@@ -24,7 +24,7 @@ def generateData(videoName, saveRoot, filePrefix = '', sampleRate = 6):
             if frameCount % sampleRate == 0:
                 temp = str(frameCount)
                 print('save frame:' + temp)
-                cv2.imwrite(saveRoot + '/' + filePrefix +'/' + filePrefix + '_' + temp + '.jpg',image)
+                cv2.imwrite(saveRoot + '/' + filePrefix + '_' + temp + '.jpg',image)
         else:
             break
 

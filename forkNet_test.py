@@ -13,7 +13,7 @@ model_root = 'F:/DeepLearning/Caffe/caffe/examples/forklift_classification/'
 # 设置网络结构  
 net_file = model_root + 'forklift_classification_deploy.prototxt'  
 # 添加训练之后的参数  
-caffe_model =  model_root + 'models/forknet_train_iter_588.caffemodel'
+caffe_model =  model_root + 'models/forknet_train_iter_1378.caffemodel'
 
 caffe.set_mode_gpu()
 caffe.set_device(0);
@@ -25,9 +25,9 @@ import cv2
 # image_file = model_root+'test/Negtive_672.jpg'
 
 #need modification
-testTxt = 'D:/Baidu/BaiduDownload/20170712/2017-07-13-151123-test.txt'
-probThreadhold = 0.9
-middle_dir = '2017-07-13-151123'
+testTxt = 'F:/DeepLearning/Caffe/caffe/examples/forklift_classification/negtive-test.txt'
+probThreadhold = 0.99
+middle_dir = 'negtive-test'
 
 testFile = open(testTxt,'r')
 lines = testFile.readlines()
@@ -36,14 +36,17 @@ count = 0 # count for p>0.5, p is probility of correct classification
 
 import os
 import os.path
+import datetime
 
-reocrd_root = 'D:/Baidu/BaiduDownload/20170712/data/' + str(middle_dir) + '/record/'
+reocrd_root = 'F:/DeepLearning/Caffe/caffe/examples/forklift_classification/test/' + str(middle_dir) + '/'
 recordTxt = reocrd_root + 'failLessThan' + str(probThreadhold) + '.txt'
 if not os.path.exists(reocrd_root):
   os.makedirs(reocrd_root)
 recordFile = open(recordTxt,'w')
 
 recordIndxList = []
+
+begin = datetime.datetime.now()
 
 for line in lines:
   image_file = line.split(' ')[0]
@@ -56,13 +59,17 @@ for line in lines:
   net.blobs['data'].data[0,2,...] = imagedata[...,2]
 
   output = net.forward()
-  prob = output['prob'][0,1]
+  prob = output['prob'][0,0]
   if prob > probThreadhold:
     count += 1
   else:
     recordIndxList.append(indx)
     print('fail indx:' + str(indx))
 
+end = datetime.datetime.now()
+print('elapsed time: '+str(end - begin))
+
+recordFile.write('sameple count: ' + str(lineNum) + '\n')
 recordFile.write('rate: ' + str(count/lineNum) + '\n')
 recordIndxList.sort()
 for i in recordIndxList:
